@@ -1,0 +1,21 @@
+{
+  "name": "web1-project-resources",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ttbhanh/web1-project-resources.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ttbhanh/web1-project-resources/issues"
+  },
+  "homepage": "https://github.com/ttbhanh/web1-project-resources#readme"
+}
