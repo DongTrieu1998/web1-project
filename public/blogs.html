@@ -16,7 +16,7 @@
     <!-- Flowbite -->
     <link href="https://flowbite.com/docs/main.css?v=4.0.1" rel="stylesheet" id="theme" />
 
-    <title>Web Project - Gallery</title>
+    <title>Web Project - Blogs</title>
 
     <style type="text/tailwindcss">
         @theme {
@@ -129,12 +129,12 @@
                         </li>
                         <li>
                             <a href="gallery.html"
-                                class="block py-2 px-3 text-white rounded md:bg-transparent md:text-fg-brand md:p-0 active"
-                                aria-current="page">Gallery</a>
+                                class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-cyan-600 md:p-0 md:dark:hover:bg-transparent">BGallerylog</a>
                         </li>
                         <li>
                             <a href="blogs.html"
-                                class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-cyan-600 md:p-0 md:dark:hover:bg-transparent">Blog</a>
+                                class="block py-2 px-3 text-white rounded md:bg-transparent md:text-fg-brand md:p-0 active"
+                                aria-current="page">Blogs</a>
                         </li>
                         <li>
                             <a href="contact.html"
@@ -157,25 +157,108 @@
     <!-- Banner -->
     <section class="bg-[url('images/bg-banner.gif')] bg-repeat h-2"></section>
 
+    <!-- Blogs -->
+    <section class="max-w-7xl mx-auto p-8">
+        <div class="flex flex-col md:grid md:grid-cols-[6.5fr_3.5fr] gap-8">
+            <div class="order-2 md:order-1">
+                <h1 class="font-heading text-7xl">Blogs</h1>
+                <div>
+                    <div class="py-4 clear-both">
+                        <h2 class="font-heading text-3xl">
+                            <a href="blog-details.html">Blog Title</a>
+                        </h2>
+                        <p class="py-4">by Anonymous in <a href="blogs.html">Category</a> on Wed, Feb 25, 2026, GMT+7 <a
+                                href="blog-details.html#comments">Comments (1)</a></p>
+                        <img src="images/blog/blog-thumb1.jpg" alt="Blog Title"
+                            class="float-start mb-8 me-8 rounded-xl">
+                        <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus omnis
+                            sint laudantium numquam odit obcaecati totam similique distinctio voluptatibus cumque,
+                            debitis explicabo temporibus placeat voluptate eaque ab earum? Perferendis, eaque!</p>
+                        <a href="blog-details.html" class="read-more">Read More...</a>
 
-    <!-- Gallery -->
-     <section class="max-w-7xl mx-auto p-8">
-        <h1 class="font-heading text-7xl mb-8">Gallery</h1>
-        <p class="text-neutral-700 text-md font-bold">Filter by Category:</p>
-        <ul class="flex flex-wrap text-md font-bold text-center text-body">
-            <li class="me-2"><a href="gallery.html" class="inline-block py-3 rounded-base hover:bg-neutral-secondary-soft">Show All</a></li>
-            <li class="me-2"><a href="gallery.html" class="inline-block py-3 px-2 rounded-base hover:bg-neutral-secondary-soft">Category 1</a></li>
-            <li class="me-2"><a href="gallery.html" class="inline-block py-3 px-2 rounded-base hover:bg-neutral-secondary-soft">Category 2</a></li>
-        </ul>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            <div><a href="details.html"><img src="images/gallery/gallery-img1.jpg" alt="" class="rounded-md"></a></div>
-            <div><a href="details.html"><img src="images/gallery/gallery-img2.jpg" alt="" class="rounded-md"></a></div>
-            <div><a href="details.html"><img src="images/gallery/gallery-img3.jpg" alt="" class="rounded-md"></a></div>
-            <div><a href="details.html"><img src="images/gallery/gallery-img4.jpg" alt="" class="rounded-md"></a></div>
-            <div><a href="details.html"><img src="images/gallery/gallery-img5.jpg" alt="" class="rounded-md"></a></div>
+                    </div>
+                    <div class="py-4 clear-both">
+                        <h2 class="font-heading text-3xl">
+                            <a href="blog-details.html">Blog Title</a>
+                        </h2>
+                        <p class="py-4">by Anonymous in <a href="blogs.html">Category</a> on Wed, Feb 25, 2026, GMT+7 <a
+                                href="blog-details.html#comments">Comments (1)</a></p>
+                        <img src="images/blog/blog-thumb1.jpg" alt="Blog Title"
+                            class="float-start mb-8 me-8 rounded-xl">
+                        <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus omnis
+                            sint laudantium numquam odit obcaecati totam similique distinctio voluptatibus cumque,
+                            debitis explicabo temporibus placeat voluptate eaque ab earum? Perferendis, eaque!</p>
+                        <a href="blog-details.html" class="read-more">Read More...</a>
+                    </div>
+                    <nav aria-label="Page navigation example" class="clear-both mt-8 flex justify-center">
+                        <ul class="flex -space-x-px text-sm">
+                            <li>
+                                <a href="#"
+                                    class="flex items-center justify-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading font-medium rounded-s-base text-sm w-10 h-10 focus:outline-none">
+                                    <span class="sr-only">Previous</span>
+                                    <svg class="w-4 h-4 rtl:rotate-180" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                        viewBox="0 0 24 24">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m15 19-7-7 7-7" />
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="flex items-center justify-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading font-medium text-sm w-10 h-10 focus:outline-none">1</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="flex items-center justify-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading font-medium text-sm w-10 h-10 focus:outline-none">2</a>
+                            </li>
+                            <li>
+                                <a href="#" aria-current="page"
+                                    class="flex items-center justify-center text-fg-brand bg-neutral-tertiary-medium box-border border border-default-medium hover:text-fg-brand font-medium text-sm w-10 h-10 focus:outline-none">3</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="flex items-center justify-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading font-medium text-sm w-10 h-10 focus:outline-none">4</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="flex items-center justify-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading font-medium text-sm w-10 h-10 focus:outline-none">5</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="flex items-center justify-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading font-medium rounded-e-base text-sm w-10 h-10 focus:outline-none">
+                                    <span class="sr-only">Next</span>
+                                    <svg class="w-4 h-4 rtl:rotate-180" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                        viewBox="0 0 24 24">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m9 5 7 7-7 7" />
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="order-1 md:order-2">
+                <h1 class="font-heading text-7xl mb-4">Categories</h1>
+                <ul class="max-w-md space-y-2 text-body list-inside">
+                    <li class="flex items-center">
+                        <img src="images/marker1.png" alt="" class="me-2">
+                        <a href="blogs.html">Show all</a>
+                    </li>                    <li class="flex items-center">
+                        <img src="images/marker1.png" alt="" class="me-2">
+                        <a href="blogs.html">Category 1</a>
+                    </li>
+                    <li class="flex items-center">
+                        <img src="images/marker1.png" alt="" class="me-2">
+                        <a href="blogs.html">Category 2</a>
+                    </li>
+                </ul>
+                <div></div>
+            </div>
         </div>
-     </section>
+    </section>
 
 
 
@@ -195,12 +278,12 @@
                 </li>
                 <li>
                     <a href="gallery.html"
-                        class="block py-2 px-3 text-white rounded md:bg-transparent md:text-fg-brand md:p-0 active"
-                        aria-current="page">Gallery</a>
+                        class="block py-2 px-3 text-white rounded md:hover:bg-transparent md:border-0 md:hover:text-pink-300 md:p-0 md:dark:hover:bg-transparent">Gallery</a>
                 </li>
                 <li>
                     <a href="blogs.html"
-                        class="block py-2 px-3 text-white rounded md:hover:bg-transparent md:border-0 md:hover:text-pink-300 md:p-0 md:dark:hover:bg-transparent">Blog</a>
+                        class="block py-2 px-3 text-white rounded md:bg-transparent md:text-fg-brand md:p-0 active"
+                        aria-current="page">Blogs</a>
                 </li>
                 <li>
                     <a href="contact.html"
