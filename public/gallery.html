@@ -16,7 +16,7 @@
     <!-- Flowbite -->
     <link href="https://flowbite.com/docs/main.css?v=4.0.1" rel="stylesheet" id="theme" />
 
-    <title>Web Project - Homepage</title>
+    <title>Web Project - Gallery</title>
 
     <style type="text/tailwindcss">
         @theme {
@@ -125,12 +125,12 @@
                         </li>
                         <li>
                             <a href="about.html"
-                                class="block py-2 px-3 text-white rounded md:bg-transparent md:text-fg-brand md:p-0 active"
-                                aria-current="page">About</a>
+                                class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-cyan-600 md:p-0 md:dark:hover:bg-transparent">About</a>
                         </li>
                         <li>
                             <a href="gallery.html"
-                                class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-cyan-600 md:p-0 md:dark:hover:bg-transparent">Gallery</a>
+                                class="block py-2 px-3 text-white rounded md:bg-transparent md:text-fg-brand md:p-0 active"
+                                aria-current="page">Gallery</a>
                         </li>
                         <li>
                             <a href="blog.html"
@@ -154,121 +154,31 @@
         </nav>
     </header>
 
-    <!-- Banner with Carousel -->
+    <!-- Banner -->
     <section class="bg-[url('images/bg-banner.gif')] bg-repeat h-2"></section>
 
-    <!-- About Us and Our vision -->
-    <section class="max-w-7xl mx-auto py-8 px-8">
-        <div class="flex flex-col md:grid md:grid-cols-[6.5fr_3.5fr] gap-8">
-            <div>
-                <h1 class="text-7xl font-heading mb-8">About Us</h1>
-                <div>
-                    <a href="details.html"><img src="images/about-1.jpg" alt=""
-                            class="rounded-xl mb-8 me-8 lg:float-start"></a>
-                    <div class="text-justify">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi animi
-                        tempora ut aut eum enim cum ipsa fugiat. Quia autem atque voluptates eligendi repellat excepturi
-                        amet maiores eum quae cum.</div>
-                    <a href="details.html" class="read-more">Read More...</a>
-                </div>
-            </div>
-            <div>
-                <h1 class="text-7xl font-heading mb-8">Our Vision</h1>
-                <div>
-                    <div class="flex mt-4 gap-4">
-                        <div class="basis-xs">
-                            <a href="details.html"><img src="images/vision/vision-1.jpg" alt=""
-                                    class="rounded-2xl w-full"></a>
-                        </div>
-                        <div class="grow">
-                            <a href="details.html">
-                                <h2 class="text-3xl font-heading mb-4 hover:hightlight">Vision Title</h2>
-                            </a>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore architecto blanditiis?
-                            </p>
-                        </div>
-                    </div>
-                    <div class="flex mt-4 gap-4">
-                        <div class="basis-xs">
-                            <a href="details.html"><img src="images/vision/vision-2.jpg" alt=""
-                                    class="rounded-2xl w-full"></a>
-                        </div>
-                        <div class="grow">
-                            <a href="details.html">
-                                <h2 class="text-3xl font-heading mb-4 hover:hightlight">Vision Title</h2>
-                            </a>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore architecto blanditiis?
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Testimonials -->
-    <section class="w-full bg-pink-300 p-8">
-        <div class="max-w-7xl mx-auto">
-            <h1 class="text-7xl font-heading text-white mb-8">Testimonials</h1>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-[url('images/quot.png')] bg-top-left bg-no-repeat ps-11">
-                    <p class="text-justify">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque impedit odio
-                        alias earum praesentium. Cupiditate itaque ratione, illo quis mollitia ex error saepe odio
-                        soluta iste magnam. Architecto, dolor quo.</p>
-                    <p class="text-white mt-4">Name</p>
-                    <a href="mailto:email@mail.com" class="read-more">email@mail.com</a>
-                </div>
-                <div class="bg-[url('images/quot.png')] bg-top-left bg-no-repeat ps-11">
-                    <p class="text-justify">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque impedit odio
-                        alias earum praesentium. Cupiditate itaque ratione, illo quis mollitia ex error saepe odio
-                        soluta iste magnam. Architecto, dolor quo.</p>
-                    <p class="text-white mt-4">Name</p>
-                    <a href="mailto:email@mail.com" class="read-more">email@mail.com</a>
-                </div>
-                <div class="bg-[url('images/quot.png')] bg-top-left bg-no-repeat ps-11">
-                    <p class="text-justify">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque impedit odio
-                        alias earum praesentium. Cupiditate itaque ratione, illo quis mollitia ex error saepe odio
-                        soluta iste magnam. Architecto, dolor quo.</p>
-                    <p class="text-white mt-4">Name</p>
-                    <a href="mailto:email@mail.com" class="read-more">email@mail.com</a>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Gallery -->
+     <section class="max-w-7xl mx-auto p-8">
+        <h1 class="font-heading text-7xl mb-8">Gallery</h1>
+        <p class="text-neutral-700 text-md font-bold">Filter by Category:</p>
+        <ul class="flex flex-wrap text-md font-bold text-center text-body">
+            <li class="me-2"><a href="gallery.html" class="inline-block py-3 rounded-base hover:bg-neutral-secondary-soft">Show All</a></li>
+            <li class="me-2"><a href="gallery.html" class="inline-block py-3 px-2 rounded-base hover:bg-neutral-secondary-soft">Category 1</a></li>
+            <li class="me-2"><a href="gallery.html" class="inline-block py-3 px-2 rounded-base hover:bg-neutral-secondary-soft">Category 2</a></li>
+        </ul>
 
-    <!-- Our Team -->
-    <section class="max-w-7xl mx-auto p-8">
-        <h1 class="font-heading text-7xl mb-8">Our Team</h1>
-        <div class="grid grid-cols-1 ms:grid-cols-2 md:grid-cols-4 gap-8">
-            <div>
-                <a href="details.html"><img src="images/our-team/team-1.jpg" alt="" class="rounded-2xl w-full"></a>
-                <a href="details.html">
-                    <h2 class="font-heading text-3xl py-4 hover:hightlight">Name</h2>
-                    <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, libero!</p>
-                </a>
-            </div>
-            <div>
-                <a href="details.html"><img src="images/our-team/team-2.jpg" alt="" class="rounded-2xl w-full"></a>
-                <a href="details.html">
-                    <h2 class="font-heading text-3xl py-4 hover:hightlight">Name</h2>
-                    <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, libero!</p>
-                </a>
-            </div>
-            <div>
-                <a href="details.html"><img src="images/our-team/team-3.jpg" alt="" class="rounded-2xl w-full"></a>
-                <a href="details.html">
-                    <h2 class="font-heading text-3xl py-4 hover:hightlight">Name</h2>
-                    <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, libero!</p>
-                </a>
-            </div>
-            <div>
-                <a href="details.html"><img src="images/our-team/team-4.jpg" alt="" class="rounded-2xl w-full"></a>
-                <a href="details.html">
-                    <h2 class="font-heading text-3xl py-4 hover:hightlight">Name</h2>
-                    <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, libero!</p>
-                </a>
-            </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div><a href="details.html"><img src="images/gallery/gallery-img1.jpg" alt="" class="rounded-md"></a></div>
+            <div><a href="details.html"><img src="images/gallery/gallery-img2.jpg" alt="" class="rounded-md"></a></div>
+            <div><a href="details.html"><img src="images/gallery/gallery-img3.jpg" alt="" class="rounded-md"></a></div>
+            <div><a href="details.html"><img src="images/gallery/gallery-img4.jpg" alt="" class="rounded-md"></a></div>
+            <div><a href="details.html"><img src="images/gallery/gallery-img5.jpg" alt="" class="rounded-md"></a></div>
         </div>
-    </section>
+     </section>
+
+
+
 
 
     <!-- Footer -->
@@ -281,12 +191,12 @@
                 </li>
                 <li>
                     <a href="about.html"
-                        class="block py-2 px-3 text-white rounded md:bg-transparent md:text-fg-brand md:p-0 active"
-                        aria-current="page">About</a>
+                        class="block py-2 px-3 text-white rounded md:hover:bg-transparent md:border-0 md:hover:text-pink-300 md:p-0 md:dark:hover:bg-transparent">About</a>
                 </li>
                 <li>
                     <a href="gallery.html"
-                        class="block py-2 px-3 text-white rounded md:hover:bg-transparent md:border-0 md:hover:text-pink-300 md:p-0 md:dark:hover:bg-transparent">Gallery</a>
+                        class="block py-2 px-3 text-white rounded md:bg-transparent md:text-fg-brand md:p-0 active"
+                        aria-current="page">Gallery</a>
                 </li>
                 <li>
                     <a href="blog.html"
