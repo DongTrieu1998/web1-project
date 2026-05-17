@@ -129,7 +129,7 @@
                         </li>
                         <li>
                             <a href="gallery.html"
-                                class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-cyan-600 md:p-0 md:dark:hover:bg-transparent">BGallerylog</a>
+                                class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-cyan-600 md:p-0 md:dark:hover:bg-transparent">Gallery</a>
                         </li>
                         <li>
                             <a href="blogs.html"
@@ -223,18 +223,19 @@
     <!-- HandlebarsJs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
     <script src="js/handlebars-pagination-helper.js"></script>
+    <script src="js/helpers/handlebars-formatDate-helper.js"></script>
     <script type="text/x-handlebars-template" id="blogs-template">
         {{#each data.data}}
         <div class="py-4 clear-both">
             <h2 class="font-heading text-3xl">
-                <a href="blog-details.html">{{title}}</a>
+                <a href="blog-details.html?id={{id}}">{{title}}</a>
             </h2>
-            <p class="py-4">by {{#if author.name}}{{author.name}}{{else}}Anonymous{{/if}} in <a href="blogs.html">{{category.name}}</a> on {{created_at}} <a
-                    href="blog-details.html#comments">Comments ({{comments.length}})</a></p>
-            <img src="{{thumbpath}}" alt="{{title}}"
-                class="float-start mb-8 me-8 rounded-xl">
+            <p class="py-4">by {{#if author.name}}{{author.name}}{{else}}Anonymous{{/if}} in <a href="blogs.html?category={{category_id}}">{{category.name}}</a> on {{formatDate created_at}} <a
+                    href="blog-details.html?#comments">Comments ({{comments.length}})</a></p>
+            <a href="blog-details.html?id={{id}}"><img src="{{thumbpath}}" alt="{{title}}"
+                class="float-start mb-8 me-8 rounded-xl"></a>
             <p class="text-justify">{{summary}}</p>
-            <a href="blog-details.html" class="read-more">Read More...</a>
+            <a href="blog-details.html?id={{id}}" class="read-more">Read More...</a>
         </div>
         {{/each}}
 
@@ -311,11 +312,12 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="js/25880071.js"></script>
     <script src="js/api/database.js"></script>
+
     <script>
         (async function () {
             const params = new URLSearchParams(window.location.search);
             const categoryId = params.get("category") ?? "All";
-             page = params.get("page") ?? 1;
+            page = params.get("page") ?? 1;
 
             const [categories, blogs] = await Promise.all([
                 fetchCategoriesByType("blogs"),

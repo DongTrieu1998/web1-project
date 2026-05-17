@@ -161,98 +161,19 @@
     <section class="max-w-7xl mx-auto p-8">
         <div class="flex flex-col md:grid md:grid-cols-[6.5fr_3.5fr] gap-8">
             <div class="order-2 md:order-1">
-                <div>
-                    <!-- Blog details -->
-                    <div class="py-4">
-                        <h2 class="font-heading text-3xl">
-                            <a href="blog-details.html">Blog Title</a>
-                        </h2>
-                        <p class="py-4">by Anonymous in <a href="blogs.html">Category</a> on Wed, Feb 25, 2026, GMT+7 <a
-                                href="blog-details.html#comments">Comments (1)</a></p>
-                        <img src="images/blog/blog-thumb1.jpg" alt="Blog Title"
-                            class="block w-full mb-8 me-8 rounded-xl">
-                        <div class="text-justify">
-                            <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
-                                omnis
-                                sint laudantium numquam odit obcaecati totam similique distinctio voluptatibus cumque,
-                                debitis explicabo temporibus placeat voluptate eaque ab earum? Perferendis, eaque!</p>
-                            <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
-                                omnis
-                                sint laudantium numquam odit obcaecati totam similique distinctio voluptatibus cumque,
-                                debitis explicabo temporibus placeat voluptate eaque ab earum? Perferendis, eaque!</p>
-                        </div>
-                    </div>
-                    <!-- Comment form -->
-
-                    <form>
-                        <h2 class="font-heading text-3xl mb-8">Leave a comment</h2>
-                        <div class="mb-6">
-                            <label for="message" class="block mb-2.5 text-sm font-medium text-heading">Your
-                                message</label>
-                            <textarea id="message" rows="4"
-                                class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full p-3.5 shadow-xs placeholder:text-body"
-                                placeholder="Write your thoughts here..."></textarea>
-
-                        </div>
-                        <div class="float-start flex items-start mb-6">
-                            <div class="flex items-center h-5">
-                                <input id="remember" type="checkbox" value=""
-                                    class="w-4 h-4 border border-default-medium rounded-xs bg-neutral-secondary-medium focus:ring-2 focus:ring-brand-soft"
-                                    required />
-                            </div>
-                            <label for="remember" class="ms-2 text-sm font-medium text-heading">I agree with the <a
-                                    href="#" class="text-fg-brand hover:underline">terms and conditions</a>.</label>
-                        </div>
-                        <button type="submit"
-                            class="float-end text-white bg-cyan-600 box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none mb-4">Submit</button>
-                    </form>
-
-                    <!-- Comment list -->
-                    <div class="clear-both">
-                        <div class="bg-heading text-white py-2 px-4 rounded-xl">Comments (2)</div>
-                        <div class="py-4">
-                            <p><span class="me-8 font-semibold">Author Name</span><span class="float-end">on Wed, Feb
-                                    25, 2026, GMT+7</span></p>
-                            <p class="text-justify py-4 clear-end">Lorem ipsum dolor sit amet consectetur adipisicing
-                                elit. Accusamus omnis
-                                sint laudantium numquam odit obcaecati totam similique distinctio voluptatibus cumque,
-                                debitis explicabo temporibus placeat voluptate eaque ab earum? Perferendis, eaque!</p>
-                        </div>
-                        <div class="py-4">
-                            <p><span class="me-8 font-semibold">Author Name</span><span class="float-end">on Wed, Feb
-                                    25, 2026, GMT+7</span></p>
-                            <p class="text-justify py-4 clear-end">Lorem ipsum dolor sit amet consectetur adipisicing
-                                elit. Accusamus omnis
-                                sint laudantium numquam odit obcaecati totam similique distinctio voluptatibus cumque,
-                                debitis explicabo temporibus placeat voluptate eaque ab earum? Perferendis, eaque!</p>
-                        </div>
-                    </div>
+                <div id="blog">
+                    <img src="images/system/preloader.gif" alt="">
                 </div>
             </div>
             <div class="order-1 md:order-2">
                 <h1 class="font-heading text-7xl mb-4">Categories</h1>
-                <ul class="max-w-md space-y-2 text-body list-inside">
-                    <li class="flex items-center">
-                        <img src="images/marker1.png" alt="" class="me-2">
-                        <a href="blogs.html">Show all</a>
-                    </li>
-                    <li class="flex items-center">
-                        <img src="images/marker1.png" alt="" class="me-2">
-                        <a href="blogs.html">Category 1</a>
-                    </li>
-                    <li class="flex items-center">
-                        <img src="images/marker1.png" alt="" class="me-2">
-                        <a href="blogs.html">Category 2</a>
-                    </li>
+                <ul class="max-w-md space-y-2 text-body list-inside" id="categories">
+                    <img src="images/system/preloader.gif" alt="">
                 </ul>
                 <div></div>
             </div>
         </div>
     </section>
-
-
-
-
 
     <!-- Footer -->
     <footer class="w-full bg-[url('images/bg-footer.gif')] bg-repeat bg-gray-600 text-white text-center py-4">
@@ -297,6 +218,94 @@
 
     <!-- Flowbite -->
     <script src="https://flowbite.com/docs/flowbite.min.js"></script>
+
+    <!-- HandlebarsJs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+    <script src="js/helpers/handlebars-formatDate-helper.js"></script>
+
+    <script type="text/x-handlebars-template" id="blog-template">
+        {{#with data}}
+        <!-- Blog details -->
+        <div class="py-4">
+            <h2 class="font-heading text-3xl">
+                <a href="#">{{title}}</a>
+            </h2>
+            <p class="py-4">by {{#if author.name}}{{author.name}}{{else}}Anonymous{{/if}} in <a href="blogs.html?category={{category_id}}">{{category.name}}</a> on {{formatDate created_at}} <a
+                    href="blog-details.html#comments">Comments ({{comments.length}})</a></p>
+            <a href="#"><img src="{{imagepath}}" alt="{{title}}"
+                class="block w-full mb-8 me-8 rounded-xl"></a>
+            <div class="text-justify">
+                {{{description}}}
+            </div>
+        </div>
+        <!-- Comment form -->
+        <form>
+            <h2 class="font-heading text-3xl mb-8">Leave a comment</h2>
+            <div class="mb-6">
+                <label for="message" class="block mb-2.5 text-sm font-medium text-heading">Your
+                    message</label>
+                <textarea id="message" rows="4"
+                    class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full p-3.5 shadow-xs placeholder:text-body"
+                    placeholder="Write your thoughts here..."></textarea>
+
+            </div>
+            <div class="float-start flex items-start mb-6">
+                <div class="flex items-center h-5">
+                    <input id="remember" type="checkbox" value=""
+                        class="w-4 h-4 border border-default-medium rounded-xs bg-neutral-secondary-medium focus:ring-2 focus:ring-brand-soft"
+                        required />
+                </div>
+                <label for="remember" class="ms-2 text-sm font-medium text-heading">I agree with the <a
+                        href="#" class="text-fg-brand hover:underline">terms and conditions</a>.</label>
+            </div>
+            <button type="submit"
+                class="float-end text-white bg-cyan-600 box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none mb-4">Submit</button>
+        </form>
+        <!-- Comment list -->
+        <div class="clear-both">
+            <div class="bg-heading text-white py-2 px-4 rounded-xl">Comments ({{comments.length}})</div>
+            {{#each comments}}
+            <div class="py-4">
+                <p><span class="me-8 font-semibold">{{#if author.name}}{{author.name}}{{else}}Anonymous{{/if}}</span><span class="float-end">on {{formatDate created_at}}</span></p>
+                <p class="text-justify py-4 clear-end">{{message}}</p>
+            </div>
+            {{/each}}
+        </div>
+        {{/with}}
+    </script>
+
+    <script type="text/x-handlebars-template" id="categories-template">
+        <li class="flex items-center" id="categoryAll">
+            <img src="images/marker1.png" alt="" class="me-2">
+            <a href="blogs.html">Show all</a>
+        </li>
+        {{#each data}}
+        <li class="flex items-center" id="category{{id}}">
+            <img src="images/marker1.png" alt="" class="me-2">
+            <a href="blogs.html?category={{id}}">{{name}}</a>
+        </li>
+        {{/each}}
+    </script>
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/25880071.js"></script>
+    <script src="js/api/database.js"></script>
+
+    <script>
+        (async function () {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get("id");
+
+            const [categories, blog] = await Promise.all([
+                fetchCategoriesByType("blogs"),
+                fetchBlogById(id),
+            ]);
+
+            renderView("categories-template", "categories", categories);
+            renderView("blog-template", "blog", blog);
+        })();
+    </script>
 </body>
 
 </html>

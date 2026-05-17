@@ -197,7 +197,7 @@
             concerns you may have.</p>
         <p class="my-4 italic">All fields with an * are required</p>
 
-        <form>
+        <form onsubmit="send(event)">
             <div class="grid gap-6 mb-6 md:grid-cols-3">
                 <div>
                     <label for="name" class="block mb-2.5 text-sm font-medium text-heading">* Your name</label>
@@ -226,7 +226,8 @@
                     placeholder="Write your thoughts here..."></textarea>
             </div>
             <button type="submit"
-                class="float-end text-white bg-cyan-600 box-border border border-transparent focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Send message to us</button>
+                class="float-end text-white bg-cyan-600 box-border border border-transparent focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Send
+                message to us</button>
         </form>
         <div class="clear-both"></div>
 
@@ -273,9 +274,93 @@
         </div>
     </footer>
 
+    <!-- Toast -->
+    <div id="toast-container" class="fixed inset-0 z-50 flex items-center justify-center pointer-events-none p-4">
+        <div id="toast-success"
+            class="hidden flex items-center w-full max-w-sm p-4 text-body bg-neutral-primary-soft rounded-base shadow-xs border border-default pointer-events-auto"
+            role="alert">
+            <div
+                class="inline-flex items-center justify-center shrink-0 w-7 h-7 text-fg-success bg-success-soft rounded">
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M5 11.917 9.724 16.5 19 7.5" />
+                </svg>
+                <span class="sr-only">Check icon</span>
+            </div>
+            <div class="ms-3 text-sm font-normal toast-message">Your email has been saved successfully!</div>
+            <button type="button"
+                class="ms-auto flex items-center justify-center text-body hover:text-heading bg-transparent box-border border border-transparent hover:bg-neutral-secondary-medium focus:ring-4 focus:ring-neutral-tertiary font-medium leading-5 rounded text-sm h-8 w-8 focus:outline-none"
+                aria-label="Close">
+                <span class="sr-only">Close</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M6 18 17.94 6M18 18 6.06 6" />
+                </svg>
+            </button>
+        </div>
+
+        <div id="toast-warning"
+            class="hidden flex items-center w-full max-w-sm p-4 text-body bg-neutral-primary-soft rounded-base shadow-xs border border-default pointer-events-auto"
+            role="alert">
+            <div
+                class="inline-flex items-center justify-center shrink-0 w-7 h-7 text-fg-warning bg-warning-soft rounded">
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+                <span class="sr-only">Warning icon</span>
+            </div>
+            <div class="ms-3 text-sm font-normal toast-message"></div>
+            <button type="button"
+                class="ms-auto flex items-center justify-center text-body hover:text-heading bg-transparent box-border border border-transparent hover:bg-neutral-secondary-medium focus:ring-4 focus:ring-neutral-tertiary font-medium leading-5 rounded text-sm h-8 w-8 focus:outline-none"
+                aria-label="Close">
+                <span class="sr-only">Close</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M6 18 17.94 6M18 18 6.06 6" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
     <!-- Flowbite -->
     <script src="https://flowbite.com/docs/flowbite.min.js"></script>
     <script src="js/map.js"></script>
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/25880071.js"></script>
+    <script src="js/api/database.js"></script>
+    <script src="js/toast.js"></script>
+
+    <script>
+        async function send(e) {
+            e.preventDefault();
+            const form = e.target;
+
+            const name = form.querySelector('#name')?.value.trim();
+            const email = form.querySelector('#email')?.value.trim();
+            const subject = form.querySelector('#subject')?.value.trim();
+            const message = form.querySelector('#message')?.value.trim();
+
+            if (!name || !email || !subject || !message) {
+                return;
+            }
+
+            try {
+                sendMessage(name, email, subject, message);
+                showToast("success", "Your message has been sent successfully!");
+                form.reset();
+            } catch (err) {
+                console.error(err);
+                showToast("warning", err.message);
+            }
+        }
+    </script>
 </body>
 
 </html>

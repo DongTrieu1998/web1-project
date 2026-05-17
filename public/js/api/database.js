@@ -143,3 +143,44 @@ async function fetchBlogsByCategoryId(
     error,
   };
 }
+
+async function fetchBlogById(id) {
+  const { data, error } = await client
+    .from("information")
+    .select(
+      `
+        id,
+        title,
+        category_id,
+        author_id,
+        imagepath,
+        description,
+        created_at,
+        author:users!information_author_id_fkey(id,name),
+        category:categories!information_category_id_fkey!inner(id,name),
+        comments:comments!comments_blogId_fkey(
+        id,
+        message,
+        created_at,
+        author:users!comments_authorId_fkey(id,name)
+        )`,
+    )
+    .eq("id", id)
+    .order("created_at", { ascending: false, foreignTable: "comments" })
+    .single();
+
+  if (error) {
+    console.error("Error fetching blog details", error);
+    return null;
+  }
+
+  return data;
+}
+
+async function sendMessage(name, email, subject, message) {
+  const { error } = await client
+    .from("contacts")
+    .insert({ email, name, subject, message });
+
+  if (error) throw errow;
+}
