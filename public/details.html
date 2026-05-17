@@ -157,19 +157,8 @@
     <section class="bg-[url('images/bg-banner.gif')] bg-repeat h-2"></section>
 
     <!-- Search results -->
-    <section class="max-w-7xl mx-auto p-8 overflow-auto">
-        <h1 class="font-heading text-7xl mb-8">Title</h1>
-        <div>
-            <img src="images/blog/blog-img1.jpg" alt="" class="float-start me-8 mb-8 rounded-xl">
-            <div class="text-justify">
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum, sunt laborum in atque nihil labore
-                    ut vero sapiente perspiciatis omnis aperiam harum soluta nemo repellat, impedit obcaecati recusandae
-                    officia quaerat?</p>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum cupiditate quis aliquam cumque!
-                    Laboriosam iure ratione nam laborum, tenetur quia sunt placeat quidem natus, quas nobis magni qui
-                    cumque quis!</p>
-            </div>
-        </div>
+    <section class="max-w-7xl mx-auto p-8 overflow-auto" id="details">
+        <img src="images/system/preloader.gif" alt="">
     </section>
 
     <!-- Footer -->
@@ -214,6 +203,33 @@
 
     <!-- Flowbite -->
     <script src="https://flowbite.com/docs/flowbite.min.js"></script>
+    <!-- HandlebarsJs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+    <script type="text/x-handlebars-template" id="details-template">
+        {{#with data}}
+        <h1 class="font-heading text-7xl mb-8">Title</h1>
+        <div>
+            <img src="{{imagepath}}" alt="" class="float-start me-8 mb-8 rounded-xl">
+            <div class="text-justify">
+                {{{description}}}
+            </div>
+        </div>
+        {{/with}}
+    </script>
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/25880071.js"></script>
+    <script src="js/api/database.js"></script>
+    <script>
+        (async function () {
+            const querryString = window.location.search;
+            const urlParams = new URLSearchParams(querryString);
+            const id = urlParams.get("id");
+
+            let data = await fetchDataById(id);
+            renderView("details-template", "details", data);
+        })();
+    </script>
 </body>
 
 </html>

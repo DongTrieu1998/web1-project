@@ -162,7 +162,8 @@
         <div class="relative h-56 overflow-hidden rounded-base md:h-96">
           <!-- Item 1 -->
           <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <h1 class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 text-7xl">Web Development <br>
+            <h1 class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 text-7xl">Web
+              Development <br>
               for everyone </h1>
           </div>
           <!-- Item 2 -->
@@ -172,7 +173,8 @@
           </div>
           <!-- Item 3 -->
           <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <h1 class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 text-7xl">DHTX - Hoc ky 2 - 2026
+            <h1 class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 text-7xl">DHTX - Hoc ky
+              2 - 2026
             </h1>
           </div>
         </div>
@@ -226,59 +228,8 @@
   <section class="bg-[url('images/bg-banner.gif')] bg-repeat h-2 sm:hidden"></section>
 
   <!-- Products with 4 columns -->
-  <section class="max-w-7xl mx-auto py-16 grid grid-cols-2 md:grid-cols-4 gap-8 px-8">
-    <!-- Product 1 -->
-    <div class="block max-w-sm">
-      <a href="details.html">
-        <img src="images/icon-1.png" alt="Coffee" class="mx-auto">
-      </a>
-      <div class="text-center">
-        <h2 class="mt-3 text-3xl font-semibold tracking-tight text-heading">
-          <a href="details.html">Coffee</a>
-        </h2>
-        <p class="text-sm py-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, vitae.</p>
-        <a href="details.html" class="read-more">Read More</a>
-      </div>
-    </div>
-    <!-- Product 2 -->
-    <div class="block max-w-sm">
-      <a href="details.html">
-        <img src="images/icon-2.png" alt="Coffee" class="mx-auto">
-      </a>
-      <div class="text-center">
-        <h2 class="mt-3 text-3xl font-semibold tracking-tight text-heading">
-          <a href="details.html">Coffee</a>
-        </h2>
-        <p class="text-sm py-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, vitae.</p>
-        <a href="details.html" class="read-more">Read More</a>
-      </div>
-    </div>
-    <!-- Product 3 -->
-    <div class="block max-w-sm">
-      <a href="details.html">
-        <img src="images/icon-3.png" alt="Coffee" class="mx-auto">
-      </a>
-      <div class="text-center">
-        <h2 class="mt-3 text-3xl font-semibold tracking-tight text-heading">
-          <a href="details.html">Coffee</a>
-        </h2>
-        <p class="text-sm py-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, vitae.</p>
-        <a href="details.html" class="read-more">Read More</a>
-      </div>
-    </div>
-    <!-- Product 4 -->
-    <div class="block max-w-sm">
-      <a href="details.html">
-        <img src="images/icon-4.png" alt="Coffee" class="mx-auto">
-      </a>
-      <div class="text-center">
-        <h2 class="mt-3 text-3xl font-semibold tracking-tight text-heading">
-          <a href="details.html">Coffee</a>
-        </h2>
-        <p class="text-sm py-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, vitae.</p>
-        <a href="details.html" class="read-more">Read More</a>
-      </div>
-    </div>
+  <section class="max-w-7xl mx-auto py-16 grid grid-cols-2 md:grid-cols-4 gap-8 px-8" id="products">
+    <img src="images/system/preloader.gif" alt="">
   </section>
 
   <!-- About Us with 2 columns -->
@@ -299,12 +250,12 @@
       </div>
       <div class="flex flex-col border-3 border-dashed rounded-xl border-neutral-800 p-4 h-fit">
         <h1 class="text-3xl text-white font-heading text-center">Newsletter<br>Sign Up</h1>
-        <form action="" class="w-full flex flex-col items-center">
+        <form action="#" class="w-full flex flex-col items-center" onsubmit="signup(event)">
           <label for="email" class="self-start">Please, write an e-mail</label>
           <input type="email" id="email"
             class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body"
             placeholder="Email" required />
-          <button type="button"
+          <button type="submit"
             class="text-white bg-dark box-border border border-transparent hover:bg-dark-strong focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base px-4 py-2.5 mt-2 ms-auto focus:outline-none font-heading text-2xl">SUBSCRIBE</button>
         </form>
       </div>
@@ -314,37 +265,8 @@
   <!-- News with 3 columns -->
   <section class="max-w-7xl mx-auto py-16 px-8">
     <h1 class="font-heading text-7xl mb-8">News</h1>
-    <div class="flex flex-col md:grid md:grid-cols-3 gap-8">
-      <div class="grid grid-cols-[2.5fr_7.5fr] gap-4">
-        <div class="bg-lime-400 text-white font-heading rounded-2xl text-center text-3xl p-4 h-fit">Mar<br>15</div>
-        <div>
-          <h2 class="text-2xl font-heading hover:hightlight">
-            <a href="details.html">News Title</a>
-          </h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, vitae.</p>
-          <a href="details.html" class="read-more">Read More...</a>
-        </div>
-      </div>
-      <div class="grid grid-cols-[2.5fr_7.5fr] gap-4">
-        <div class="bg-lime-400 text-white font-heading rounded-2xl text-center text-3xl p-4 h-fit">Mar<br>15</div>
-        <div>
-          <h2 class="text-2xl font-heading hover:hightlight">
-            <a href="details.html">News Title</a>
-          </h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, vitae.</p>
-          <a href="details.html" class="read-more">Read More...</a>
-        </div>
-      </div>
-      <div class="grid grid-cols-[2.5fr_7.5fr] gap-4">
-        <div class="bg-lime-400 text-white font-heading rounded-2xl text-center text-3xl p-4 h-fit">Mar<br>15</div>
-        <div>
-          <h2 class="text-2xl font-heading hover:hightlight">
-            <a href="details.html">News Title</a>
-          </h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, vitae.</p>
-          <a href="details.html" class="read-more">Read More...</a>
-        </div>
-      </div>
+    <div class="flex flex-col md:grid md:grid-cols-3 gap-8" id="news">
+      <img src="images/system/preloader.gif" alt="">
     </div>
   </section>
 
@@ -389,8 +311,132 @@
     </div>
   </footer>
 
+  <!-- Toast -->
+  <div id="toast-container" class="fixed inset-0 z-50 flex items-center justify-center pointer-events-none p-4">
+    <div id="toast-success"
+      class="hidden flex items-center w-full max-w-sm p-4 text-body bg-neutral-primary-soft rounded-base shadow-xs border border-default pointer-events-auto"
+      role="alert">
+      <div class="inline-flex items-center justify-center shrink-0 w-7 h-7 text-fg-success bg-success-soft rounded">
+        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+          viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M5 11.917 9.724 16.5 19 7.5" />
+        </svg>
+        <span class="sr-only">Check icon</span>
+      </div>
+      <div class="ms-3 text-sm font-normal toast-message">Your email has been saved successfully!</div>
+      <button type="button"
+        class="ms-auto flex items-center justify-center text-body hover:text-heading bg-transparent box-border border border-transparent hover:bg-neutral-secondary-medium focus:ring-4 focus:ring-neutral-tertiary font-medium leading-5 rounded text-sm h-8 w-8 focus:outline-none"
+        aria-label="Close">
+        <span class="sr-only">Close</span>
+        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+          viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M6 18 17.94 6M18 18 6.06 6" />
+        </svg>
+      </button>
+    </div>
+
+    <div id="toast-warning"
+      class="hidden flex items-center w-full max-w-sm p-4 text-body bg-neutral-primary-soft rounded-base shadow-xs border border-default pointer-events-auto"
+      role="alert">
+      <div class="inline-flex items-center justify-center shrink-0 w-7 h-7 text-fg-warning bg-warning-soft rounded">
+        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+          viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        <span class="sr-only">Warning icon</span>
+      </div>
+      <div class="ms-3 text-sm font-normal toast-message"></div>
+      <button type="button"
+        class="ms-auto flex items-center justify-center text-body hover:text-heading bg-transparent box-border border border-transparent hover:bg-neutral-secondary-medium focus:ring-4 focus:ring-neutral-tertiary font-medium leading-5 rounded text-sm h-8 w-8 focus:outline-none"
+        aria-label="Close">
+        <span class="sr-only">Close</span>
+        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+          viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M6 18 17.94 6M18 18 6.06 6" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
   <!-- Flowbite -->
   <script src="https://flowbite.com/docs/flowbite.min.js"></script>
+
+  <!-- HandlebarsJs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+  <script type="text/x-handlebars-template" id="products-template">
+    {{#each data}}
+    <div class="block max-w-sm">
+      <a href="details.html?id={{id}}">
+        <img src="{{thumbpath}}" alt="{{title}}" class="mx-auto">
+      </a>
+      <div class="text-center">
+        <h2 class="mt-3 text-3xl font-semibold tracking-tight text-heading"><a
+        href="details.html?id={{id}}">{{title}}</a>
+        </h2>
+        <p class="text-sm py-4">{{summary}}</p>
+        <a href="details.html?id={{id}}" class="read-more">Read more</a>
+      </div>
+    </div>
+    {{/each}}
+  </script>
+
+  <script type="text/x-handlebars-template" id="news-template">
+    {{#each data}}
+          <div class="grid grid-cols-[2.5fr_7.5fr] gap-4">
+        <div class="bg-lime-400 text-white font-heading rounded-2xl text-center text-3xl p-4 h-fit">{{month}}<br>{{day}}</div>
+        <div>
+          <h2 class="text-2xl font-heading hover:hightlight">
+            <a href="details.html?id={{id}}">{{title}}</a>
+          </h2>
+          <p>{{summary}}</p>
+          <a href="details.html?id={{id}}" class="read-more">Read More...</a>
+        </div>
+      </div>
+    {{/each}}
+  </script>
+
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/25880071.js"></script>
+  <script src="js/api/database.js"></script>
+  <script src="js/toast.js"></script>
+
+  <script>
+    (async function () {
+      let products = await fetchDataByType();
+      renderView("products-template", "products", products);
+
+      let news = await fetchDataByType(["news"]);
+      let newsWithDate = news.map((n) => {
+        const d = new Date(n.created_at);
+        return {
+          ...n,
+          day: d.getDate(),
+          month: d.toLocaleString("default", { month: "short" }),
+        };
+      })
+      renderView("news-template", "news", newsWithDate);
+    })();
+
+    async function signup(event) {
+      event.preventDefault();
+      try {
+        const form = event.target;
+
+        const email = form.querySelector("#email").value;
+        await subscribe(email);
+        form.reset();
+        showToast("success", "Your email has been saved successfully!");
+      } catch (err) {
+        console.error(err);
+        showToast("warning", err.message);
+      }
+    }
+  </script>
 </body>
 
 </html>
