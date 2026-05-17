@@ -37,7 +37,8 @@ async function fetchDataById(id) {
 async function fetchTestimonials() {
   const { data, error } = await client.from("testimonials").select(
     `
-        *,user:users!testimonials_author_id_fkey(*)
+        *,
+        user:users!testimonials_author_id_fkey(*)
       `,
   );
 
