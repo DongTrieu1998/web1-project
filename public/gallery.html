@@ -159,27 +159,17 @@
 
 
     <!-- Gallery -->
-     <section class="max-w-7xl mx-auto p-8">
+    <section class="max-w-7xl mx-auto p-8">
         <h1 class="font-heading text-7xl mb-8">Gallery</h1>
         <p class="text-neutral-700 text-md font-bold">Filter by Category:</p>
-        <ul class="flex flex-wrap text-md font-bold text-center text-body">
-            <li class="me-2"><a href="gallery.html" class="inline-block py-3 rounded-base hover:bg-neutral-secondary-soft">Show All</a></li>
-            <li class="me-2"><a href="gallery.html" class="inline-block py-3 px-2 rounded-base hover:bg-neutral-secondary-soft">Category 1</a></li>
-            <li class="me-2"><a href="gallery.html" class="inline-block py-3 px-2 rounded-base hover:bg-neutral-secondary-soft">Category 2</a></li>
+        <ul class="flex flex-wrap text-md font-bold text-center text-body" id="categories">
+            <img src="images/system/preloader.gif" alt="">
         </ul>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            <div><a href="details.html"><img src="images/gallery/gallery-img1.jpg" alt="" class="rounded-md"></a></div>
-            <div><a href="details.html"><img src="images/gallery/gallery-img2.jpg" alt="" class="rounded-md"></a></div>
-            <div><a href="details.html"><img src="images/gallery/gallery-img3.jpg" alt="" class="rounded-md"></a></div>
-            <div><a href="details.html"><img src="images/gallery/gallery-img4.jpg" alt="" class="rounded-md"></a></div>
-            <div><a href="details.html"><img src="images/gallery/gallery-img5.jpg" alt="" class="rounded-md"></a></div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="gallery">
+            <img src="images/system/preloader.gif" alt="">
         </div>
-     </section>
-
-
-
-
+    </section>
 
     <!-- Footer -->
     <footer class="w-full bg-[url('images/bg-footer.gif')] bg-repeat bg-gray-600 text-white text-center py-4">
@@ -224,6 +214,72 @@
 
     <!-- Flowbite -->
     <script src="https://flowbite.com/docs/flowbite.min.js"></script>
+
+    <!-- HandlebarsJs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+    <script type="text/x-handlebars-template" id="categories-template">
+            <li class="me-2" id="categoryAll"><a href="gallery.html?"
+                class="inline-block py-3 rounded-base hover:bg-neutral-secondary-soft">Show All</a></li>
+            {{#each data}}
+            <li class="me-2" id="category{{id}}"><a href="gallery.html?category={{id}}"
+                class="inline-block py-3 px-2 rounded-base hover:bg-neutral-secondary-soft">{{name}}</a></li>
+            {{/each}}
+    </script>
+
+    <script type="text/x-handlebars-template" id="gallery-template">
+    {{#each data}}
+        <div><a href="details.html?id={{id}}"><img src="{{thumbpath}}" alt="{{title}}" class="rounded-md"></a></div>
+    {{/each}}
+  </script>
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/25880071.js"></script>
+    <script src="js/api/database.js"></script>
+    <script>
+        (async function () {
+            const [categories, gallery] = await Promise.all([
+                fetchCategoriesByType(),
+                fetchGallery(),
+            ]);
+
+            const selectedCategory = getSelectedCategoryFromURL();
+            const { selectedGallery, activeCategoryId } = selectGalleryByCategory(gallery, selectedCategory);
+
+            renderView("categories-template", "categories", categories);
+            renderView("gallery-template", "gallery", selectedGallery);
+
+            highlightCategoryTab(activeCategoryId);
+        })();
+
+        function getSelectedCategoryFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get("category");
+        }
+
+        function selectGalleryByCategory(gallery, categoryId) {
+            if (!categoryId) {
+                return { selectedGallery: gallery, activeCategoryId: "All" };
+
+            }
+
+            const filtered = gallery.filter(i => i.category_id == categoryId);
+            if (filtered.lenght === 0) {
+                return { selectedGallery: gallery, activeCategoryId: "All" };
+            }
+
+            return { selectedGallery: filtered, activeCategoryId: categoryId };
+        }
+
+        function highlightCategoryTab(categoryId) {
+            const categoriesRoot = document.querySelector('#categories');
+            if (!categoriesRoot) return;
+
+            categoriesRoot.querySelector(".active")?.classList.remove('active');
+            categoriesRoot.querySelector('#category${categoryId} a')?.classList.add('active');
+        }
+    </script>
+
 </body>
 
 </html>
