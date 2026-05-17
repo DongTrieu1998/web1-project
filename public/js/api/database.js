@@ -184,3 +184,68 @@ async function sendMessage(name, email, subject, message) {
 
   if (error) throw errow;
 }
+
+async function fetchDataByKeyword(keyword) {
+  const textSearch = (keyword || "").trim();
+  const excluded = [31, 32, 33, 34];
+
+  let query = client
+    .from("information")
+    .select(
+      `
+        id,
+        title,
+        summary,
+        thumbpath
+        `,
+    )
+    .not("category_id", "in", `(${excluded.join(",")})`);
+
+  if (textSearch) {
+    query = query.or(
+      `title.ilike.%${textSearch}%,summary.ilike.%${textSearch}%,description.ilike.%${textSearch}%`,
+    );
+  }
+
+  const { data, error } = await query;
+
+  if (error) {
+    console.error(error);
+    return [];
+  }
+
+  return data;
+}
+
+async function supabaseSignup(email, password, name) {
+  let { data, error } = await client.auth.signUp({ email, password });
+  if (error) throw error;
+
+  ({ error } = await client.from("users").insert({
+    id: data.user.id,
+    name,
+  }));
+
+  if (error) throw error;
+  return data;
+}
+
+client.auth.onAuthStateChange((event, session) => {
+  initAuthUI(session);
+});
+
+function initAuthUI(session) {
+  const isLogin = Boolean(session?.user);
+
+  document
+    .querySelectorAll(".isLogout")
+    .forEach((item) => item.classList.toggle("hidden", isLogin));
+  document
+    .querySelectorAll(".isLogin")
+    .forEach((item) => item.classList.toggle("hidden", !isLogin));
+}
+
+async function supabaseLogout() {
+  const { error } = await client.auth.signOut();
+  if (error) throw error;
+}
